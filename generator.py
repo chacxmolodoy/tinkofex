@@ -10,11 +10,11 @@ try:
         sl=defaultdict(dict,f)
 except:
     sl=defaultdict(dict)
-with open(s, encoding='utf-8') as d:
-    q=''
-    for c in d:
-        q+=c.strip().lower()
-    result = re.split(r'\s*[?,!–().;]\s*', q)
+with open(s, encoding='utf-8') as a:
+    stroka=''
+    for c in a:
+        stroka+=c.strip().lower()
+    result = re.split(r'\s*[?,!–().;]\s*', stroka)
     for c in result:
         g=re.split(r'\s*[,: -]\s*', c)
         g=list(map(lambda x: x.lower(), g))
@@ -25,7 +25,6 @@ with open(s, encoding='utf-8') as d:
                     sl[tup][g[i]]+=1
                 else:
                     sl[tup][g[i]]=1
-with open('model.pkl', 'wb') as qw:
+with open('model.pkl', 'wb') as basa:
     sl=dict(sl)
-    pickle.dump(sl, qw)
-print(sl)
+    pickle.dump(sl, basa)
